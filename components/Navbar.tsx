@@ -1,4 +1,6 @@
 'use client'
+import { supabaseClient } from '@/utils/supabase/client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
@@ -24,12 +26,34 @@ const Navbar = () => {
         }
     ], [pathname])
 
+    const supabase = supabaseClient();
+    const [data, setData] = React.useState<any[] | null>(null)
+
+    React.useEffect(() => {
+        const getData = async () => {
+            const { data, error } = await supabase.from('homepage').select('image')
+            setData(data)
+        }
+        getData()
+    }, [])
+
     return (
         <div className='shadow sticky top-0'>
-            <div className='mx-auto container px-20 py-4'>
+            <div className='mx-auto container px-20 py-2'>
                 <div className='flex justify-between items-center'>
-                    <div>
-                        <h1 className='text-xl md:text-2xl font-black'><span className='text-blue-600'>NYT</span> Tech<span className='text-blue-600'>.</span></h1>
+                    <div
+                        className=''
+                    >
+                        <div className='overflow-hidden w-14 h-14 rounded-full'>
+                            <Image
+                                src={data?.at(0).image}
+                                alt='Logo'
+                                width={500}
+                                height={500}
+                                className='w-full h-full scale-110'
+                            />
+                        </div>
+
                     </div>
                     <nav className='flex space-x-5'>
                         {routes.map((items) => (
