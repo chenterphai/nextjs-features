@@ -28,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     {data?.map((items: any) => (
                         <button
                             className=''
+                            key={items.id}
                         >
                             <Link href={items.href} className={twMerge(`group flex items-center gap-x-2 text-neutral-500 px-4 py-2 rounded-2xl hover:bg-neutral-100 hover:text-gray-600 hover:ml-2 transition-all duration-200 ease-in-out`,
                                 items.active && "bg-neutral-100 ml-2 text-sky-600"

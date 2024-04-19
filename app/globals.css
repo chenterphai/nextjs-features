@@ -15,3 +15,8 @@
 .home-title {
     @apply md:text-2xl text-xl text-gray-600 font-medium
 }
+
+.arrow-hover:hover .arrow {
+    opacity: 1;
+    right: 16px;
+}
