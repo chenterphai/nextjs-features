@@ -1,17 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.footer-title {
-    @apply text-[18px] font-medium text-white
-}
-.footer-subtitle {
-    @apply text-sm font-light text-gray-200
-}
-.container-primary {
-    @apply container px-5 md:px-20 mx-auto
-}
-
-.home-title {
-    @apply md:text-2xl text-xl text-gray-600 font-medium
-}
