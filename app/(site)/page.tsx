@@ -3,6 +3,8 @@ import PopularServices from "@/components/Popular";
 import * as React from 'react'
 import { supabaseClient } from "@/utils/supabase/client";
 import RecentProject from "@/components/RecentProject";
+import Videos from "@/components/Videos";
+import Feedback from "@/components/Feedback";
 export default function Home() {
 
   const supabase = supabaseClient()
@@ -20,6 +22,8 @@ export default function Home() {
     <>
       <PopularServices data={data} />
       <RecentProject />
+      <Videos />
+      <Feedback />
     </>
   );
 }

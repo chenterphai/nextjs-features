@@ -14,6 +14,9 @@ import { GrServices } from "react-icons/gr";
 import { BiHomeAlt2 } from 'react-icons/bi';
 import Footer from './Footer';
 import Search from './Search';
+import { HiOutlineComputerDesktop } from 'react-icons/hi2';
+import { LuLayoutTemplate } from 'react-icons/lu';
+import { PiNotebookDuotone } from 'react-icons/pi';
 
 interface NAVBAR_PROPS {
     children: React.ReactNode;
@@ -38,16 +41,36 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
             icon: <BsInfoCircle />
         },
         {
+            label: "Products",
+            active: pathname === "/products",
+            href: "/products",
+            icon: <BsCart2 />,
+            driopdown: [
+                {
+                    label: "PC Peripherals",
+                    active: pathname === "/pc-peripherals",
+                    href: "/pc-peripherals",
+                    icon: <HiOutlineComputerDesktop />
+                },
+                {
+                    label: "Templates",
+                    active: pathname === "/templates",
+                    href: "/templates",
+                    icon: <LuLayoutTemplate />
+                },
+                {
+                    label: "eBooks",
+                    active: pathname === "/ebooks",
+                    href: "/ebooks",
+                    icon: <PiNotebookDuotone />
+                }
+            ]
+        },
+        {
             label: "Services",
             active: pathname === "/services",
             href: "/services",
             icon: <GrServices />
-        },
-        {
-            label: "Products",
-            active: pathname === "/products",
-            href: "/products",
-            icon: <BsCart2 />
         },
         {
             label: "Contacts",
@@ -62,7 +85,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
 
     React.useEffect(() => {
         const getData = async () => {
-            const { data, error } = await supabase.from('homepage').select('image')
+            const { data, error } = await supabase.from('homepage').select('image').eq('id', 1)
             setData(data)
         }
         getData()
@@ -112,7 +135,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                         <Search className='' />
                     </div>
 
-                    <nav className='md:flex space-x-5 hidden'>
+                    <nav className='md:flex space-x-5 hidden relative'>
                         {routes.map((items) => (
                             <Link
                                 href={items.href}
@@ -122,9 +145,13 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                     items.active && 'text-sky-600')}
                             >
                                 {items.label}
+
                             </Link>
+
                         ))}
                     </nav>
+
+
 
                     <div className='hidden max-md:flex '>
                         <RiMenu3Line
