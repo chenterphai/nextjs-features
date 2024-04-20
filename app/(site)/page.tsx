@@ -5,6 +5,8 @@ import { supabaseClient } from "@/utils/supabase/client";
 import RecentProject from "@/components/RecentProject";
 import Videos from "@/components/Videos";
 import Feedback from "@/components/Feedback";
+import Pricing from "@/components/Pricing";
+import BestSellingProducts from "@/components/BestSellingProducts";
 export default function Home() {
 
   const supabase = supabaseClient()
@@ -12,7 +14,7 @@ export default function Home() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const { data, error } = await supabase.from('services').select('title, image').order('id', { ascending: false }).limit(5)
+      const { data, error } = await supabase.from('services').select('title, image, link').order('id', { ascending: false }).limit(5)
       setData(data)
     }
     getData()
@@ -24,6 +26,8 @@ export default function Home() {
       <RecentProject />
       <Videos />
       <Feedback />
+      {/* <Pricing /> */}
+      <BestSellingProducts />
     </>
   );
 }

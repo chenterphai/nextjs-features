@@ -3,6 +3,8 @@ import { supabaseClient } from '@/utils/supabase/client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { FaArrowRight } from 'react-icons/fa'
+import RecentProjectCard from './RecentProjectCard'
 
 const RecentProject = () => {
 
@@ -30,8 +32,10 @@ const RecentProject = () => {
                         </h1>
                         <Link
                             href={'/services'}
-                            className="text-primary md:text-sm text-xs"
-                        >See All</Link>
+                            className="text-primary md:text-sm text-xs flex items-center justify-start gap-x-1 py-2 px-4 rounded-full hover:bg-sky-50 transition-all"
+                        >See All
+                            <FaArrowRight size={10} />
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -39,63 +43,9 @@ const RecentProject = () => {
             <div className='row'>
                 <div className='col-md-12'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10'>
-                        <div className='flex flex-col space-y-2'>
-                            <div className='overflow-hidden rounded-3xl'>
-                                <Image
-                                    src={data?.at(0).image?.at(0).img}
-                                    alt='Image'
-                                    width={1280}
-                                    height={899}
-                                    className='w-full'
-                                />
-                            </div>
-                            <div className='p-2 flex flex-col space-y-2'>
-                                <h1 className='text-lg font-medium truncate text-gray-500'>
-                                    {data?.at(0).title}
-                                </h1>
-                                <p className='text-sm text-gray-400 text-ellipsis overflow-hidden wrap-text'>
-                                    {data?.at(0).subtitle}
-                                </p>
-                            </div>
-                        </div>
-                        <div className='flex flex-col space-y-2'>
-                            <div className='overflow-hidden rounded-3xl'>
-                                <Image
-                                    src={data?.at(0).image?.at(0).img}
-                                    alt='Image'
-                                    width={1280}
-                                    height={899}
-                                    className=''
-                                />
-                            </div>
-                            <div className='p-2 flex flex-col space-y-2'>
-                                <h1 className='text-lg font-medium truncate text-gray-500'>
-                                    {data?.at(0).title}
-                                </h1>
-                                <p className='text-sm text-gray-400 text-ellipsis overflow-hidden wrap-text'>
-                                    {data?.at(0).subtitle}
-                                </p>
-                            </div>
-                        </div>
-                        <div className='flex flex-col space-y-2'>
-                            <div className='overflow-hidden rounded-3xl'>
-                                <Image
-                                    src={data?.at(0).image?.at(0).img}
-                                    alt='Image'
-                                    width={1280}
-                                    height={899}
-                                    className=''
-                                />
-                            </div>
-                            <div className='p-2 flex flex-col space-y-2'>
-                                <h1 className='text-lg font-medium truncate text-gray-500'>
-                                    {data?.at(0).title}
-                                </h1>
-                                <p className='text-sm text-gray-400 text-ellipsis overflow-hidden wrap-text'>
-                                    {data?.at(0).subtitle}
-                                </p>
-                            </div>
-                        </div>
+                        {data && data?.map((items) => (
+                            <RecentProjectCard data={items} />
+                        ))}
                     </div>
                 </div>
             </div>

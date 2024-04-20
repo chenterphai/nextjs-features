@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import ServiceCards from './ServiceCards'
+import { FaArrowRight } from 'react-icons/fa'
 
 interface POPULAR_SERVICES_PROPS {
     data: any
@@ -25,8 +26,10 @@ const PopularServices: React.FC<POPULAR_SERVICES_PROPS> = ({
 
                             <Link
                                 href={'/services'}
-                                className="text-primary md:text-sm text-xs"
-                            >See All</Link>
+                                className="text-primary md:text-sm text-xs flex items-center justify-start gap-x-1 py-2 px-4 rounded-full hover:bg-sky-50 transition-all"
+                            >See All
+                                <FaArrowRight size={10} />
+                            </Link>
 
                         </div>
                     </div>

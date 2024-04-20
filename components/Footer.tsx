@@ -66,7 +66,7 @@ const Footer = ({ data, link }: any) => {
                                     Phone: +855 964 903 404
                                 </p>
                                 <p className="footer-subtitle">
-                                    info@nyttechnology.com
+                                    info.nyttechnology@gmail.com
                                 </p>
                             </div>
                             <div className='flex items-center gap-x-2 text-gray-100'>

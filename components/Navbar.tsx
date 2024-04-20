@@ -132,7 +132,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                 </h1>
                             </Link>
                         </div>
-                        <Search className='' />
+                        <Search className={pathname === '/contacts' || pathname === '/about' ? "hidden" : ""} />
                     </div>
 
                     <nav className='md:flex space-x-5 hidden relative'>
