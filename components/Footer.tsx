@@ -90,7 +90,7 @@ const Footer = ({ data, link }: any) => {
                                 {link.map((items: any) => (
                                     <Link
                                         href={items.href}
-                                        key={items.label}
+                                        key={items.href}
                                         className={twMerge('transition-all duration-200 ease-in-out flex items-center text-gray-100 gap-x-2 hover:text-sky-200 hover:ml-2', items.active && "text-sky-300 ml-2")}
                                     >
                                         <MdArrowRight className='text-lg' />

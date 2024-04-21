@@ -1,7 +1,11 @@
+'use client'
 import CoverSection from '@/components/Cover'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Products = () => {
+    const router = useRouter()
+
     return (
         <>
             <CoverSection>
@@ -16,6 +20,33 @@ const Products = () => {
                     </div>
                 </div>
             </CoverSection>
+
+            <div className='container-primary py-10'>
+                <div className="row">
+                    <div className="col-md-12">
+
+                        <div className='flex justify-between mb-8'>
+                            <button
+                                className=''
+                                onClick={() => router.push('#templates')}
+                            >#templates</button>
+                        </div>
+
+
+                        <div className='mb-8' id='templates'>
+                            <span className='text-sm font-medium text-sky-900 uppercase'>
+                                Products
+                            </span>
+                            <h1 className='text-xl md:text-2xl lg:text-3xl font-semibold text-primary'>
+                                Templates
+                            </h1>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

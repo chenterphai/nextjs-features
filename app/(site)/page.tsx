@@ -7,6 +7,7 @@ import Videos from "@/components/Videos";
 import Feedback from "@/components/Feedback";
 import Pricing from "@/components/Pricing";
 import BestSellingProducts from "@/components/BestSellingProducts";
+import ContactSection from "@/components/Contact";
 export default function Home() {
 
   const supabase = supabaseClient()
@@ -28,6 +29,7 @@ export default function Home() {
       <Feedback />
       {/* <Pricing /> */}
       <BestSellingProducts />
+      <ContactSection />
     </>
   );
 }

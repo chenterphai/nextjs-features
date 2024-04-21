@@ -15,9 +15,9 @@ const Feedback = () => {
     const [data, setData] = React.useState<any[] | null>(null);
 
     const [rate, setRate] = React.useState(0)
-    const [name, setName] = React.useState('')
-    const [email, setEmail] = React.useState('')
-    const [feedback, setFeedback] = React.useState('')
+    const [customerName, setName] = React.useState('')
+    const [customerEmail, setEmail] = React.useState('')
+    const [customerFeedback, setFeedback] = React.useState('')
     const [isSent, setIsSent] = React.useState(false)
 
     const openModal = () => {
@@ -53,23 +53,38 @@ const Feedback = () => {
         setFeedback(e.target.value)
     }
 
-    const handleSend = () => {
-        if (rate !== 0 && name !== '' && email !== '' && feedback !== '') {
+    const handleSend = async () => {
+        if (rate !== 0 && customerName !== '' && customerEmail !== '' && customerFeedback !== '') {
             setIsModalOpen(false)
             setIsSent(true)
+            const { data, error } = await supabase.from('feedback').insert(
+                [{
+                    customerName,
+                    customerEmail,
+                    customerFeedback,
+                    rate
+                }]
+            )
+
+            if (error) {
+                console.log(error)
+            }
+            if (data) {
+                console.log(data)
+            }
             console.log("Feedback sent.")
         } else {
             console.log("Please fill all in fields!")
         }
     }
     console.log("Your rate:", rate);
-    console.log("Your name: ", name);
-    console.log("You email: ", email);
-    console.log("Feedback:", feedback)
+    console.log("Your name: ", customerName);
+    console.log("You email: ", customerEmail);
+    console.log("Feedback:", customerFeedback)
 
     React.useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from('feedback').select('*').order('id', { ascending: false }).limit(3)
+            const { data, error } = await supabase.from('feedback').select('*').order('rate', { ascending: false }).limit(3)
             setData(data)
         }
         fetchData()
@@ -133,19 +148,19 @@ const Feedback = () => {
                         </div>
                         <div>
                             <h1 className='mb-2'>3. What can we do to improve our service?</h1>
-                            <textarea name="" id="" value={feedback} onChange={handleGetFeedback} cols={45} rows={5} className='border-2 border-gray-300 p-2 rounded text-gray-500 text-sm' />
+                            <textarea name="" id="" value={customerFeedback} onChange={handleGetFeedback} cols={45} rows={5} className='border-2 border-gray-300 p-2 rounded text-gray-500 text-sm' />
                         </div>
                     </div>
                 </div>
                 <h1 className='text-xl text-center md:text-2xl py-3 font-medium border-b mb-6'>Your Info</h1>
                 <div className='flex max-md:flex-col justify-between items-center gap-4 mb-3'>
                     <input
-                        value={name}
+                        value={customerName}
                         onChange={handleGetName}
                         type="text"
                         className='border p-3 w-full text-gray-500 text-sm' placeholder='Name' />
                     <input
-                        value={email}
+                        value={customerEmail}
                         onChange={handleGetEmail}
                         type="email"
                         className='border p-3 w-full text-gray-500 text-sm' placeholder='Email' />
