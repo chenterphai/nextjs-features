@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import ServiceCards from './ServiceCards'
 import { FaArrowRight } from 'react-icons/fa'
+import Button from './Button'
 
 interface POPULAR_SERVICES_PROPS {
     data: any
@@ -19,17 +20,16 @@ const PopularServices: React.FC<POPULAR_SERVICES_PROPS> = ({
                 <div className="row">
                     <div className="col-md-12 mb-8">
                         <div className="flex justify-between items-center">
+                            <div className=''>
+                                <span className='font-semibold text-sky-800 text-sm md:text-base'>
+                                    Services
+                                </span>
+                                <h1 className="home-title">
+                                    Popular Services
+                                </h1>
+                            </div>
 
-                            <h1 className="home-title">
-                                Popular Services
-                            </h1>
-
-                            <Link
-                                href={'/services'}
-                                className="text-primary md:text-sm text-xs flex items-center justify-start gap-x-1 py-2 px-4 rounded-full hover:bg-sky-50 transition-all"
-                            >See All
-                                <FaArrowRight size={10} />
-                            </Link>
+                            <Button link={'/services'} >See All</Button>
 
                         </div>
                     </div>

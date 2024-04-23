@@ -12,7 +12,7 @@ const AllServicesCard = ({ data }: AllServicesCardProps) => {
 
     return (
         <div
-            onClick={() => router.push(data.link)}
+            onClick={() => router.push(`/services/${data.id}`)}
             className='relative bg-white hover:bg-primary transition-all duration-200 ease-in-out group p-3 shadow-md border border-primary/60 rounded-xl hover:shadow-xl cursor-pointer hover:scale-105 active:scale-95'>
             <div className='flex flex-col items-center justify-center'>
                 <h1 className='transition-all duration-200 ease-in-out text-lg text-primary text-center mt-6 group-hover:text-white'>

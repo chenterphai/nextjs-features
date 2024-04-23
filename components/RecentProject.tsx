@@ -27,9 +27,14 @@ const RecentProject = () => {
             <div className='row'>
                 <div className='col-md-12 mb-8'>
                     <div className='flex justify-between items-center'>
-                        <h1 className='home-title'>
-                            Recent Project
-                        </h1>
+                        <div>
+                            <span className='font-semibold text-sky-800 text-sm md:text-base'>
+                                Portfolio
+                            </span>
+                            <h1 className='home-title'>
+                                Recent Project
+                            </h1>
+                        </div>
                         <Link
                             href={'/services'}
                             className="text-primary md:text-sm text-xs flex items-center justify-start gap-x-1 py-2 px-4 rounded-full hover:bg-sky-50 transition-all"

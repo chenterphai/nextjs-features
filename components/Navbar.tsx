@@ -2,7 +2,7 @@
 import { supabaseClient } from '@/utils/supabase/client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { RiMenu3Line } from 'react-icons/ri';
 import { twMerge } from 'tailwind-merge';
@@ -94,34 +94,12 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
     const [toggle, setToggle] = React.useState(false)
 
     const getToggle = () => {
-        setToggle(true)
+        setToggle(!toggle)
     }
 
-    const onClick = () => {
-        setToggle(false)
-    }
-
+    const router = useRouter()
     // Scroll To See Button
-    const [isVisible, setIsVistble] = React.useState(false)
-    const [height, setHeight] = React.useState(0)
-    React.useEffect(() => {
-        window.addEventListener("scroll", listenToScroll);
-        return () => window.removeEventListener("scroll", listenToScroll);
-    }, [])
 
-    const listenToScroll = () => {
-        let heightToShow = 200;
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        setHeight(winScroll)
-
-        if (winScroll > heightToShow) {
-            isVisible && setIsVistble(true)
-        }
-        else {
-            setIsVistble(false)
-        }
-        console.log(winScroll)
-    }
 
     return (
 
@@ -134,6 +112,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                             <div className='flex items-center justify-start w-full gap-x-4'>
                                 <div
                                     className='flex justify-start items-center'
+                                    id='top'
                                 >
                                     <Link href={'/'}
                                         className='flex justify-start items-center'
@@ -169,39 +148,44 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                     </Link>
                                 ))}
                             </nav>
-                            <div className='hidden max-md:flex '>
-                                <RiMenu3Line
-                                    className='text-xl cursor-pointer text-neutral-500 transition-all duration-300 ease-in-out font-bold hover:scale-110 hover:text-black'
-                                    onClick={getToggle}
-                                />
+                            <div className='hidden max-md:flex z-50'>
+                                {!toggle ? (
+
+                                    <RiMenu3Line
+                                        className='text-xl cursor-pointer text-neutral-500 transition-all duration-300 ease-in-out font-bold hover:scale-110 hover:text-black'
+                                        onClick={getToggle}
+                                    />
+                                ) : (
+
+                                    <FaTimes
+                                        className='text-xl cursor-pointer text-neutral-500 transition-all duration-300 ease-in-out font-bold hover:scale-110 hover:text-black'
+                                        onClick={getToggle}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>
-                    <Sidebar className={toggle} data={routes} />
-                    <span>
-                        <FaTimes
-                            className={twMerge(`hidden md:hidden absolute top-[24px] -right-10 text-neutral-400 transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:text-black`, toggle && 'block right-4')}
-                            onClick={onClick}
-                        />
-                    </span>
                 </div>
 
 
 
-                <main>
+                <main className='overflow-hidden relative'>
+                    <Sidebar className={toggle} data={routes} onClick={getToggle} />
                     {children}
                 </main>
 
                 <Footer data={data} link={routes} />
 
                 {/* Scroll to see this button */}
-                {
-                    isVisible &&
 
-                    <button className='fixed bottom-5 right-5'>
-                        <FaArrowUp />
-                    </button>
-                }
+
+
+                <button
+                    onClick={() => router.push('#top')}
+                    className='fixed bottom-20 right-10 p-3 bg-primary rounded-full transition-all duration-200 ease-in-out hover:scale-105 hover:bg-primary/90'>
+                    <FaArrowUp className='text-white' />
+                </button>
+
 
             </div>
         </>

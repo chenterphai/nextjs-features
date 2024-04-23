@@ -1,6 +1,5 @@
 'use client'
 import { supabaseClient } from '@/utils/supabase/client'
-import Image from 'next/image'
 import React from 'react'
 import FeedbackCard from './FeedbackCard'
 import Modal from './Modal'

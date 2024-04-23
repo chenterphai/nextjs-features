@@ -11,7 +11,7 @@ interface ProductCardsProps {
 const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) => {
     return (
         <div key={data.id}
-            className='rounded-xl overflow-hidden shadow-md'
+            className='rounded-xl overflow-hidden border-2 border-transparent shadow-md transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl hover:border-sky-100'
         >
             <div className='overflow-hidden relative'>
                 <Image
@@ -31,7 +31,7 @@ const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) =
                     {[...Array(data.Rate)].map((_, index) => (
                         <span
                             key={index}
-                            className={"text-orange-400"}
+                            className={"text-orange-400 mr-1"}
                         >
                             ★
                         </span>
@@ -42,7 +42,7 @@ const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) =
                         className='py-3 text-gray-700 text-lg font-medium'
                     >$ {data.Price}</p>
                     <button
-                        className='text-white bg-primary px-3 py-1 rounded'
+                        className='text-white bg-primary px-3 py-1 rounded transition-all duration-150 ease-in-out hover:bg-sky-400 active:scale-95'
                     >{btnLabel}</button>
                 </div>
             </div>
