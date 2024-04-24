@@ -25,7 +25,7 @@ const Components: React.FC<TemplateProps> = ({
 
     return (
         <>
-            <div className={twMerge('container-primary', className)} id='#template'>
+            <div className={twMerge('container-primary', className)} id='components'>
                 <div className='row'>
                     <div className='col-md-12 mb-5'>
                         <div className='flex justify-between items-center'>

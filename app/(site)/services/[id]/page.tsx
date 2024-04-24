@@ -5,7 +5,7 @@ export default function PageServices({
 }: any) {
     return (
         <div>
-
+            {id}
         </div>
     )
 }

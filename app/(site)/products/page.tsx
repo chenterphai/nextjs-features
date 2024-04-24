@@ -12,6 +12,7 @@ const Products = () => {
 
     const navigate = [
         { link: '#template' },
+        { link: '#components' },
         { link: '#ebook' },
         { link: '#course' },
         { link: '#pc-peripherals' },
@@ -42,7 +43,7 @@ const Products = () => {
                             {navigate.map((items) => (
                                 <button
                                     key={items.link}
-                                    className='text-sky-500 bg-sky-50 px-3 py-1 rounded text-sm'
+                                    className='text-sky-500 bg-sky-50 md:px-3 px-2 py-1 rounded md:text-sm text-xs'
                                     onClick={() => router.push(items.link)}
                                 >{items.link}</button>
                             ))}

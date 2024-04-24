@@ -12,7 +12,7 @@ const ServiceCards: React.FC<ServiceCardsProps> = ({ items }) => {
     return (
         <>
             <div
-                onClick={() => router.push(items.link)}
+                onClick={() => router.push(`/services/${items.id}`)}
                 key={items.title}
                 className='shadow-sm border-2 group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl border-gray-50 overflow-hidden rounded-xl flex flex-col bg-sky-50 cursor-pointer active:scale-95'
             >

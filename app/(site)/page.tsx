@@ -15,7 +15,7 @@ export default function Home() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const { data, error } = await supabase.from('services').select('title, image, link').order('id', { ascending: false }).limit(5)
+      const { data, error } = await supabase.from('services').select('title, image, id').order('id', { ascending: false }).limit(5)
       setData(data)
     }
     getData()

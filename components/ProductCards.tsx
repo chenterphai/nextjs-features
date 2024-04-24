@@ -26,21 +26,30 @@ const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) =
                 </div>
             </div>
             <div className='px-4'>
-                <h1 className='text-lg text-gray-500 py-3 truncate'>{data.Name}</h1>
-                <div>
-                    {[...Array(data.Rate)].map((_, index) => (
-                        <span
-                            key={index}
-                            className={"text-orange-400 mr-1"}
-                        >
-                            ★
-                        </span>
-                    ))}
-                </div>
-                <div className='flex justify-between items-center my-2'>
+                <div className='flex justify-between items-center'>
+                    <h1 className='text-base text-gray-500 py-3 truncate'>{data.Name}</h1>
                     <p
-                        className='py-3 text-gray-700 text-lg font-medium'
+                        className='py-3 text-sky-900 text-base font-semibold w-40 text-right'
                     >$ {data.Price}</p>
+                </div>
+
+                <p
+                    className='text-sm text-gray-400 mb-2 line-clamp-2'
+                >
+                    {data.Description}
+                </p>
+
+                <div className='flex justify-between items-center my-2 mb-4'>
+                    <div>
+                        {[...Array(data.Rate)].map((_, index) => (
+                            <span
+                                key={index}
+                                className={"text-orange-400 mr-1"}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
                     <button
                         className='text-white bg-primary px-3 py-1 rounded transition-all duration-150 ease-in-out hover:bg-sky-400 active:scale-95'
                     >{btnLabel}</button>

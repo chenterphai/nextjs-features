@@ -17,7 +17,7 @@ const Peripherals: React.FC<PeripheralsProps> = ({
     const [data, setData] = React.useState<any[] | null>(null)
     React.useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from('template').select('*').order('Rate', { ascending: false })
+            const { data, error } = await supabase.from('products').select('*').order('Rate', { ascending: false }).eq('Category', 'pc-peripherals').limit(4)
             setData(data)
         }
         fetchData()
@@ -37,7 +37,7 @@ const Peripherals: React.FC<PeripheralsProps> = ({
                                     Peripherals
                                 </h1>
                             </div>
-                            <Button link={''} className='' >See All</Button>
+                            <Button link={'products/1'} className='' >See All</Button>
                         </div>
                     </div>
                     <div className='mb-12'>
