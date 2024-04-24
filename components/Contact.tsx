@@ -36,7 +36,7 @@ const ContactSection = () => {
 
                             <div className='flex flex-col gap-y-3 mt-3 p-5'>
                                 {SOCIAL_MEDIA.map((items) => (
-                                    <div className='flex items-center justify-start gap-x-2'>
+                                    <div className='flex items-center justify-start gap-x-2' key={items.label}>
                                         <span className='bg-primary p-3 rounded'>{items.icon}</span>
                                         <Link
                                             href={items.link}

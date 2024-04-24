@@ -53,7 +53,7 @@ const About = () => {
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi quisquam debitis dolorum voluptatum consequuntur explicabo. Esse omnis cumque suscipit alias perspiciatis, eaque velit adipisci tenetur expedita quasi! Ratione, veniam rem!
                         </p>
                         <p className='mt-8 text-sm md:text-base text-sky-900'>
-                            Our mission is to empower businesses with cutting-edge technology solutions, seamlessly integrating innovation and expertise to drive sustainable growth and success. We strive to be a trusted partner, delivering tailored IT services that optimize efficiency, enhance productivity, and ensure security. With a commitment to excellence and customer satisfaction, we aim to exceed expectations, foster long-term relationships, and become the catalyst for our clients' digital transformation journeys.
+                            Our mission is to empower businesses with cutting-edge technology solutions, seamlessly integrating innovation and expertise to drive sustainable growth and success. We strive to be a trusted partner, delivering tailored IT services that optimize efficiency, enhance productivity, and ensure security. With a commitment to excellence and customer satisfaction, we aim to exceed expectations, foster long-term relationships, and become the catalyst for our clients digital transformation journeys.
                         </p>
                     </div>
                 </div>
