@@ -16,7 +16,9 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
 
     return (
-        <div className={twMerge(`fixed w-[0px] z-40 h-screen top-16 shadow-lg backdrop-blur right-0 transition-all duration-300 ease-in-out`, className && 'w-[300px] block md:hidden')}>
+        <div
+            onClick={onClick}
+            className={twMerge(`fixed w-[0px] z-40 h-screen top-16 shadow-lg backdrop-blur right-0 transition-all duration-300 ease-in-out`, className && 'w-[300px] block md:hidden')}>
             <div className='w-full h-full rounded-md bg-neutral-50 relative'>
 
                 <div className='flex items-center justify-start p-4 pt-5 gap-x-2 border-b'>
@@ -29,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     {data?.map((items: any) => (
                         <button
                             className=''
-                            key={items.icon}
+                            key={items.href}
                         >
                             <Link
                                 onClick={() => { onClick() }}

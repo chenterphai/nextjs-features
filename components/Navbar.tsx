@@ -30,18 +30,21 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
     const routes = useMemo(() => [
         {
             label: "Home",
+            id: 1,
             active: pathname === '/',
             href: '/',
             icon: <BiHomeAlt2 />
         },
         {
             label: "About",
+            id: 2,
             active: pathname === "/about",
             href: '/about',
             icon: <BsInfoCircle />
         },
         {
             label: "Products",
+            id: 3,
             active: pathname === "/products",
             href: "/products",
             icon: <BsCart2 />,
@@ -68,12 +71,14 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
         },
         {
             label: "Services",
+            id: 4,
             active: pathname === "/services",
             href: "/services",
             icon: <GrServices />
         },
         {
             label: "Contacts",
+            id: 5,
             active: pathname === "/contacts",
             href: '/contacts',
             icon: <MdOutlineContacts />
@@ -139,7 +144,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                 {routes.map((items) => (
                                     <Link
                                         href={items.href}
-                                        key={items.label}
+                                        key={items.id}
                                         className={twMerge(
                                             `text-gray-700 relative transition-all ease-in-out text-sm hover:text-sky-600  after:content-[''] after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-[2px] after:bg-sky-600 after:rounded-full after:-bottom-1 after:transition-all after:ease-in-out after:duration-200 after:hover:absolute after:hover:w-full`,
                                             items.active && 'text-sky-600')}

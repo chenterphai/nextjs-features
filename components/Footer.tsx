@@ -10,11 +10,11 @@ import { twMerge } from 'tailwind-merge'
 const Footer = ({ data, link }: any) => {
 
     const SOCIAL_MEDIA = [
-        { icon: <FaFacebook />, link: '' },
-        { icon: <FaInstagram />, link: '' },
-        { icon: <FaYoutube />, link: '' },
-        { icon: <FaTiktok />, link: '' },
-        { icon: <FaTwitter />, link: '' },
+        { icon: <FaFacebook />, link: '', id: 1 },
+        { icon: <FaInstagram />, link: '', id: 2 },
+        { icon: <FaYoutube />, link: '', id: 3 },
+        { icon: <FaTiktok />, link: '', id: 4 },
+        { icon: <FaTwitter />, link: '', id: 5 },
     ]
 
     return (
@@ -73,7 +73,7 @@ const Footer = ({ data, link }: any) => {
                                 {SOCIAL_MEDIA.map((items) => (
                                     <Link
                                         href={items.link}
-                                        key={items.link}
+                                        key={items.id}
                                         className='transition-all ease-in-out duration-200 hover:scale-110'
                                     >
                                         {items.icon}
@@ -90,7 +90,7 @@ const Footer = ({ data, link }: any) => {
                                 {link.map((items: any) => (
                                     <Link
                                         href={items.href}
-                                        key={items.href}
+                                        key={items.label}
                                         className={twMerge('transition-all duration-200 ease-in-out flex items-center text-gray-100 gap-x-2 hover:text-sky-200 hover:ml-2', items.active && "text-sky-300 ml-2")}
                                     >
                                         <MdArrowRight className='text-lg' />
