@@ -10,11 +10,11 @@ import { twMerge } from 'tailwind-merge'
 const Footer = ({ data, link }: any) => {
 
     const SOCIAL_MEDIA = [
-        { icon: <FaFacebook />, link: '' },
-        { icon: <FaInstagram />, link: '' },
-        { icon: <FaYoutube />, link: '' },
-        { icon: <FaTiktok />, link: '' },
-        { icon: <FaTwitter />, link: '' },
+        { icon: <FaFacebook />, link: '', id: 1 },
+        { icon: <FaInstagram />, link: '', id: 2 },
+        { icon: <FaYoutube />, link: '', id: 3 },
+        { icon: <FaTiktok />, link: '', id: 4 },
+        { icon: <FaTwitter />, link: '', id: 5 },
     ]
 
     return (
@@ -66,14 +66,14 @@ const Footer = ({ data, link }: any) => {
                                     Phone: +855 964 903 404
                                 </p>
                                 <p className="footer-subtitle">
-                                    info@nyttechnology.com
+                                    info.nyttechnology@gmail.com
                                 </p>
                             </div>
                             <div className='flex items-center gap-x-2 text-gray-100'>
                                 {SOCIAL_MEDIA.map((items) => (
                                     <Link
                                         href={items.link}
-                                        key={items.link}
+                                        key={items.id}
                                         className='transition-all ease-in-out duration-200 hover:scale-110'
                                     >
                                         {items.icon}
