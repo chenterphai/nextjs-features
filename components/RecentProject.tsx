@@ -49,7 +49,7 @@ const RecentProject = () => {
                 <div className='col-md-12'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10'>
                         {data && data?.map((items) => (
-                            <RecentProjectCard data={items} />
+                            <RecentProjectCard data={items} key={items.id} />
                         ))}
                     </div>
                 </div>
