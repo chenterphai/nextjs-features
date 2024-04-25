@@ -5,7 +5,7 @@ import { BiHome } from 'react-icons/bi'
 import Link from 'next/link'
 import ProductCards from '@/components/ProductCards'
 import Image from 'next/image'
-export default function page({
+export default function Products({
     params: { id }
 }: any) {
 
