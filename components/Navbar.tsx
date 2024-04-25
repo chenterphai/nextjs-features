@@ -77,10 +77,10 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
             icon: <GrServices />
         },
         {
-            label: "Contacts",
+            label: "Account",
             id: 5,
-            active: pathname === "/contacts",
-            href: '/contacts',
+            active: pathname === "/account",
+            href: '/account',
             icon: <MdOutlineContacts />
         }
     ], [pathname])
@@ -122,7 +122,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                     <Link href={'/'}
                                         className='flex justify-start items-center'
                                     >
-                                        <div className='overflow-hidden w-14 h-14'>
+                                        <div className='overflow-hidden w-14 h-14 animate'>
                                             <Image
                                                 src={data?.at(0).image}
                                                 alt='Logo'
@@ -133,8 +133,8 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
                                         </div>
                                         <h1 className='text-3xl font-bold max-lg:hidden'>
                                             <span className='text-sky-600'>N</span>
-                                            <span className='text-sky-500'>Y</span>
-                                            <span className='text-sky-400'>T</span>
+                                            <span className='text-green-500'>Y</span>
+                                            <span className='text-sky-500'>T</span>
                                         </h1>
                                     </Link>
                                 </div>
@@ -187,7 +187,7 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
 
                 <button
                     onClick={() => router.push('#top')}
-                    className='fixed bottom-20 right-10 p-3 bg-primary rounded-full transition-all duration-200 ease-in-out hover:scale-105 hover:bg-primary/90'>
+                    className='fixed bottom-20 right-10 p-3 bg-primary rounded-full transition-all duration-200 ease-in-out hover:scale-105 hover:bg-primary/90 animate-bounce'>
                     <FaArrowUp className='text-white' />
                 </button>
 

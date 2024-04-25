@@ -37,7 +37,7 @@ const Components: React.FC<TemplateProps> = ({
                                     Components
                                 </h1>
                             </div>
-                            <Button link={''} className=''>
+                            <Button link={'/products/2'} className=''>
                                 See All
                             </Button>
                         </div>

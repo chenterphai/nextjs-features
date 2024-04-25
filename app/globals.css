@@ -20,3 +20,16 @@
     opacity: 1;
     right: 16px;
 }
+
+.animate {
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
