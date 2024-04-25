@@ -37,7 +37,7 @@ const Peripherals: React.FC<PeripheralsProps> = ({
                                     Peripherals
                                 </h1>
                             </div>
-                            <Button link={'products/1'} className='' >See All</Button>
+                            <Button link={'products/5'} className='' >See All</Button>
                         </div>
                     </div>
                     <div className='mb-12'>

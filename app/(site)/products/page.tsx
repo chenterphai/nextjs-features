@@ -5,6 +5,7 @@ import CoverSection from '@/components/Cover'
 import Ebook from '@/components/Ebook'
 import Peripherals from '@/components/Peripherals'
 import Template from '@/components/Template'
+import { supabaseClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -13,12 +14,33 @@ const Products = () => {
     const navigate = [
         { link: '#template' },
         { link: '#components' },
-        { link: '#ebook' },
-        { link: '#course' },
+        { link: '#ebooks' },
+        { link: '#courses' },
         { link: '#pc-peripherals' },
     ]
 
     const router = useRouter()
+
+    // Test
+
+    const [data, setData] = React.useState<any[] | null>(null)
+    const supabase = supabaseClient();
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const { data, error } = await supabase
+                .from('product')
+                .select("*, products(*)")
+            if (error) {
+                throw error;
+            }
+            setData(data)
+        }
+        fetchData()
+    }, [])
+    console.log(data)
+    console.log(data?.at(0).products)
+
+    // End text
 
     return (
         <>
@@ -53,11 +75,10 @@ const Products = () => {
                     </div>
                 </div>
             </div>
-            <Template className='mb-16' />
-            <Components className='mb-16' />
-            <Ebook className='mb-16' />
-            <Course className='mb-16' />
-            <Peripherals className='' />
+
+            {data && data?.map((data) => (
+                <Template className='mb-16' items={data} key={data.id} />
+            ))}
         </>
     )
 }

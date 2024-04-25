@@ -37,7 +37,7 @@ const Ebook: React.FC<EbookProps> = ({
                                     Ebook
                                 </h1>
                             </div>
-                            <Button link={''}>See All</Button>
+                            <Button link={'/products/3'}>See All</Button>
                         </div>
                     </div>
                     <div className='mb-12'>

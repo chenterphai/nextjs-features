@@ -37,7 +37,7 @@ const Course: React.FC<TemplateProps> = ({
                                     Course
                                 </h1>
                             </div>
-                            <Button link={''} className='' >See All</Button>
+                            <Button link={'/products/4'} className='' >See All</Button>
                         </div>
                     </div>
                     <div className='mb-12'>

@@ -10,7 +10,7 @@ const Services = () => {
     const [data, setData] = React.useState<any[] | null>(null)
     React.useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from('services').select('icon, id, title, subtitle')
+            const { data, error } = await supabase.from('services').select('icon, id, title, subtitle, service(*)')
             setData(data)
         }
         fetchData()
@@ -33,6 +33,7 @@ const Services = () => {
             </CoverSection>
 
             <div className='container-primary py-10'>
+
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className='flex flex-col items-center justify-center'>
@@ -46,6 +47,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className='row'>
                     <div className="col-md-12 mt-16">
                         <div className='grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-14'>
@@ -55,6 +57,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )
