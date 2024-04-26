@@ -37,8 +37,6 @@ const Products = () => {
         }
         fetchData()
     }, [])
-    console.log(data)
-    console.log(data?.at(0).products)
 
     // End text
 

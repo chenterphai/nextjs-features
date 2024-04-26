@@ -77,10 +77,10 @@ const Navbar: React.FC<NAVBAR_PROPS> = ({
             icon: <GrServices />
         },
         {
-            label: "Account",
+            label: "Contact",
             id: 5,
-            active: pathname === "/account",
-            href: '/account',
+            active: pathname === "/contacts",
+            href: '/contacts',
             icon: <MdOutlineContacts />
         }
     ], [pathname])

@@ -21,7 +21,6 @@ export default function Products({
         }
         fetchData()
     }, [])
-    console.log(data)
 
     return (
         <div className=''>
@@ -58,7 +57,7 @@ export default function Products({
             </div>
 
             <div className='container-primary mb-8'>
-                <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
                     {data && data?.map((items) => (
                         <ProductCards
                             data={items}
