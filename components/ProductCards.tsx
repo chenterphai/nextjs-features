@@ -7,7 +7,7 @@ interface ProductCardsProps {
     data: any;
     normal: boolean;
     btnLabel: string;
-    btnLink: string
+    btnLink?: string
 }
 
 const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel, btnLink }) => {
