@@ -41,7 +41,7 @@ const BestSellingProducts = () => {
                 <div className='col-md-12 mb-8'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
                         {data && data?.map((items) => (
-                            <ProductCards data={items} key={items.id} normal={false} btnLabel='Details' />
+                            <ProductCards data={items} key={items.id} normal={false} btnLabel='Details' btnLink={''} />
                         ))}
                     </div>
                 </div>
