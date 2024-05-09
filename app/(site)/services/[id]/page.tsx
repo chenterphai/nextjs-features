@@ -32,11 +32,12 @@ export default function PageServices({
                     <div className="col-md-12 mb-8">
                         <div className='flex items-center justify-start gap-x-5 text-gray-500'>
                             <button
+                                className='rounded-md hover:bg-sky-50 p-2 transition-all duration-150 ease-in-out active:scale-95'
                                 onClick={() => router.push('/services')}
                             >
                                 <BiHome size={25} className='text-sky-500' />
                             </button>
-                            <span className='text-gray-300'>/</span> {data && data.at(0).Title}
+                            <span className='text-gray-300'>/</span> {data?.at(0).Title}
                         </div>
                     </div>
                 </div>
@@ -50,6 +51,7 @@ export default function PageServices({
                                     data={items}
                                     normal={true}
                                     key={items.id}
+                                    btnLink='service-details'
                                 />
                             ))}
                         </div>

@@ -10,11 +10,17 @@ const Services = () => {
     const [data, setData] = React.useState<any[] | null>(null)
     React.useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from('services').select('icon, id, title, subtitle, service(*)')
+            const { data, error } = await supabase
+                .from('services')
+                .select("*")
+            if (error) {
+                throw error;
+            }
             setData(data)
         }
         fetchData()
     }, [])
+    console.log(data)
 
     return (
         <div>

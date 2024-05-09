@@ -64,6 +64,7 @@ export default function Products({
                             normal={true}
                             btnLabel='Details'
                             key={items.id}
+                            btnLink='product-details'
                         />
                     ))}
                 </div>

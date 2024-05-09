@@ -7,21 +7,23 @@ interface ProductCardsProps {
     data: any;
     normal: boolean;
     btnLabel: string;
+    btnLink: string
 }
 
-const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) => {
+const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel, btnLink }) => {
     const router = useRouter()
     return (
         <div key={data.id}
-            className='rounded-xl overflow-hidden border-2 border-transparent shadow-md transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl hover:border-sky-100'
+            className='rounded-xl flex flex-1 flex-col overflow-hidden border-2 border-transparent shadow-md transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl hover:border-sky-100'
         >
-            <div className='overflow-hidden relative'>
+            <div className='overflow-hidden relative h-full w-full flex'>
                 <Image
                     src={data.Image.at(0).img}
                     alt={data.Name}
                     width={1200}
                     height={1200}
-                    className=''
+                    // col2 = 284px col1 = 449px
+                    className='object-cover'
                 />
                 <div className={normal ? 'hidden' : 'absolute text-sm top-5 -right-10 bg-primary text-white px-10 py-2 rotate-45'}>
                     Best Selling
@@ -53,7 +55,7 @@ const ProductCards: React.FC<ProductCardsProps> = ({ data, normal, btnLabel }) =
                         ))}
                     </div>
                     <button
-                        onClick={() => router.push(`/product-details/${data.id}`)}
+                        onClick={() => router.push(`/${btnLink}/${data.id}`)}
                         className='text-white bg-primary px-3 py-1 rounded transition-all duration-150 ease-in-out hover:bg-sky-400 active:scale-95'
                     >{btnLabel}</button>
                 </div>

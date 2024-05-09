@@ -39,6 +39,7 @@ const Template: React.FC<TemplateProps> = ({
                                     data={items}
                                     normal={true}
                                     key={items.id}
+                                    btnLink='product-details'
                                 />
                             ))}
                         </div>
