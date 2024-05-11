@@ -14,7 +14,7 @@ export default function PageServices({
     const [data, setData] = React.useState<any[] | null>(null)
     React.useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from('service').select('*').eq('services_id', id)
+            const { data, error } = await supabase.from('service').select('*, services(title)').eq('services_id', id)
             if (error) {
                 throw error;
             }
@@ -22,6 +22,8 @@ export default function PageServices({
         }
         fetchData()
     }, [])
+
+    console.log(data)
 
     const router = useRouter()
     return (
@@ -37,7 +39,7 @@ export default function PageServices({
                             >
                                 <BiHome size={25} className='text-sky-500' />
                             </button>
-                            <span className='text-gray-300'>/</span> {data?.at(0).Title}
+                            <span className='text-gray-300'>/</span> {data?.at(0).services.title}
                         </div>
                     </div>
                 </div>
