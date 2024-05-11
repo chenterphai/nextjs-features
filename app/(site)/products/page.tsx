@@ -1,22 +1,23 @@
 'use client'
-import Components from '@/components/Components'
-import Course from '@/components/Course'
 import CoverSection from '@/components/Cover'
-import Ebook from '@/components/Ebook'
-import Peripherals from '@/components/Peripherals'
 import Template from '@/components/Template'
 import { supabaseClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
+import { TbTemplate } from "react-icons/tb";
+import { RxComponent1 } from "react-icons/rx";
 import React from 'react'
+import { IoBookOutline } from "react-icons/io5";
+import { LuBookMinus } from "react-icons/lu";
+import { HiOutlineComputerDesktop } from "react-icons/hi2";
 
 const Products = () => {
 
     const navigate = [
-        { link: '#template' },
-        { link: '#components' },
-        { link: '#ebooks' },
-        { link: '#courses' },
-        { link: '#pc-peripherals' },
+        { link: 'template', icon: <TbTemplate /> },
+        { link: 'components', icon: <RxComponent1 /> },
+        { link: 'ebooks', icon: <IoBookOutline /> },
+        { link: 'courses', icon: <LuBookMinus /> },
+        { link: 'pc-peripherals', icon: <HiOutlineComputerDesktop /> },
     ]
 
     const router = useRouter()
@@ -59,13 +60,13 @@ const Products = () => {
                 <div className="row">
                     <div className="col-md-12">
 
-                        <div className='flex justify-between mb-8'>
+                        <div className='flex justify-between flex-wrap space-y-2 mb-8'>
                             {navigate.map((items) => (
                                 <button
                                     key={items.link}
-                                    className='text-sky-500 bg-sky-50 md:px-3 px-2 py-1 rounded md:text-sm text-xs'
-                                    onClick={() => router.push(items.link)}
-                                >{items.link}</button>
+                                    className='text-sky-500 bg-sky-50 md:px-3 px-2 py-1 rounded md:text-sm text-xs flex items-center gap-x-1'
+                                    onClick={() => router.push(`#${items.link}`)}
+                                >{items.icon} {items.link}</button>
                             ))}
                         </div>
 

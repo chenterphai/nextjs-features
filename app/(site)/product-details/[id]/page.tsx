@@ -96,7 +96,7 @@ export default function ProductDetails({
                         <p
                             className='text-gray-600 text-xl py-5'
                         >Similar Product</p>
-                        <div className='grid md:grid-cols-1 xl:grid-cols-2 gap-4'>
+                        <div className='grid md:grid-cols-1 xl:grid-cols-2 grid-cols-2 gap-4'>
                             {_data && _data?.map((items, idx) => (
                                 <div
                                     key={idx}
